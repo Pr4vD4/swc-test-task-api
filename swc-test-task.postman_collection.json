@@ -1,0 +1,416 @@
+{
+	"info": {
+		"_postman_id": "16d563a8-6def-4337-ae14-8792286f2701",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18886047",
+		"_collection_link": "https://interstellar-moon-227232.postman.co/workspace/swc-test-task~35987871-4adb-4f0d-8dd1-2edbcdce9e07/collection/18886047-16d563a8-6def-4337-ae14-8792286f2701?action=share&source=collection_link&creator=18886047"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "login",
+									"value": "user1",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "user",
+									"type": "text"
+								},
+								{
+									"key": "surname",
+									"value": "user",
+									"type": "text"
+								},
+								{
+									"key": "birthdate",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/auth/register",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "login",
+									"value": "user1",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/auth/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/auth/logout",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}/admin/users",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"admin",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/profile/delete",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"profile",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "events (appointments)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/profile/events/appointments",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"profile",
+								"events",
+								"appointments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user events (created by this user)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/profile/events/created",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"profile",
+								"events",
+								"created"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc3djLXRlc3QtdGFzay1hcGkvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MDI1OTU2NTksImV4cCI6MTcwMjU5OTI1OSwibmJmIjoxNzAyNTk1NjU5LCJqdGkiOiJ1bDJCeUZvNVZNRjNJWnk4Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.1j0MSGLWqkK4T3Sxjpw8ne6TVQ920mJ8lMQcLy1lNXI",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}/profile",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Event",
+			"item": [
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "some event 5",
+									"type": "text"
+								},
+								{
+									"key": "text",
+									"value": "123123123 123123 134213421",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/events",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/events",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/events/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"events",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "add event to user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/add/event/1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"add",
+						"event",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "remove event from user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/detach/event/1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"detach",
+						"event",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete user's event",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/delete/event/1",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"delete",
+						"event",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc3djLXRlc3QtdGFzay1hcGkvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MDI3NTg3NzcsImV4cCI6MTcwMjc2MjM3NywibmJmIjoxNzAyNzU4Nzc3LCJqdGkiOiJkaGhNZHZ4TmtsY0ZWMlJMIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJ1c2VyIjp7ImlkIjoxLCJuYW1lIjoiVGVzdCIsInN1cm5hbWUiOiJVc2VyIiwibG9naW4iOiJ1c2VyMSJ9fQ.06B3uAdTOCccfni9o2iMo2zYW162EzzxM1DDUOv1o_I",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
