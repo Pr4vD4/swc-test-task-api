@@ -19,6 +19,7 @@ class EventResource extends JsonResource
             'author' => $this->author,
             'title' => $this->title,
             'text' => $this->text,
+            'created_at' => $this->created_at,
             'users' => $this->users
         ];
     }

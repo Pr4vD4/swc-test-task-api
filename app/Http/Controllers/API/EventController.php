@@ -61,7 +61,10 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        //
+        return response()->json([
+            'error' => null,
+            'result' => new EventResource($event)
+        ]);
     }
 
     /**
