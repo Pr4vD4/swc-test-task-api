@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Http\Resources\UserResource;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -12,6 +13,23 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
 class User extends Authenticatable implements JWTSubject
 {
     use HasApiTokens, HasFactory, Notifiable;
+
+    /**
+     * User's appointments to events
+     *
+     */
+    public function events()
+    {
+        return $this->belongsToMany(Event::class, 'events_users', 'event_id', 'user_id');
+    }
+
+    /**
+     * Events created by user
+     *
+     */
+    public function user_events() {
+        return $this->hasMany(Event::class, 'author');
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -62,6 +80,8 @@ class User extends Authenticatable implements JWTSubject
      */
     public function getJWTCustomClaims()
     {
-        return [];
+        return [
+            'user' => new UserResource($this)
+        ];
     }
 }

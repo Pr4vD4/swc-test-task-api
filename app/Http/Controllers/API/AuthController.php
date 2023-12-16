@@ -42,7 +42,10 @@ class AuthController extends Controller
 
         $user->token = JWTAuth::fromUser($user);
 
-        return response()->json(new UserResource($user));
+        return response()->json([
+            'error' => null,
+            'result' => new UserResource($user)
+        ]);
     }
 
     public function login(Request $request)
@@ -68,9 +71,16 @@ class AuthController extends Controller
 
     }
 
-    public function profile(Request $request)
+    public function logout()
     {
-        return response()->json(auth()->user());
+        auth()->logout();
+
+        return response()->json([
+            'errors' => null,
+            'result' => [
+                'message' => 'Successfully logged out'
+            ]
+        ]);
     }
 
 }
