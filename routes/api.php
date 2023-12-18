@@ -20,12 +20,6 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'], function () {
     Route::get('/logout', [\App\Http\Controllers\API\AuthController::class, 'logout']);
 });
 
-Route::group(['middleware' => ['jwt.auth'], 'prefix' => 'admin'], function () {
-    Route::resources([
-        'users' => \App\Http\Controllers\API\UserController::class
-    ]);
-});
-
 Route::group(['middleware' => ['jwt.auth'], 'prefix' => 'profile'], function () {
     Route::get('/', [\App\Http\Controllers\API\UserController::class, 'profile']);
     Route::get('/events/appointments', [\App\Http\Controllers\API\UserController::class, 'events']);
@@ -35,7 +29,8 @@ Route::group(['middleware' => ['jwt.auth'], 'prefix' => 'profile'], function () 
 
 Route::group(['middleware' => ['jwt.auth']], function () {
     Route::resources([
-        'events' => \App\Http\Controllers\API\EventController::class
+        'events' => \App\Http\Controllers\API\EventController::class,
+        'users' => \App\Http\Controllers\API\UserController::class
     ]);
 
     Route::post('/add/event/{id}', [\App\Http\Controllers\API\UserController::class, 'add_event']);

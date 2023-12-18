@@ -15,7 +15,7 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): \Illuminate\Http\JsonResponse
     {
         return response()->json([
             'error' => null,
@@ -42,9 +42,12 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(User $user): \Illuminate\Http\JsonResponse
     {
-        //
+        return response()->json([
+            'error' => null,
+            'result' => new UserResource($user)
+        ]);
     }
 
     /**
@@ -71,7 +74,7 @@ class UserController extends Controller
         //
     }
 
-    public function delete()
+    public function delete(): \Illuminate\Http\JsonResponse
     {
 
         $user = auth()->user();
@@ -89,7 +92,7 @@ class UserController extends Controller
 
     }
 
-    public function profile(Request $request)
+    public function profile(Request $request): \Illuminate\Http\JsonResponse
     {
         return response()->json([
             'error' => null,
@@ -97,7 +100,7 @@ class UserController extends Controller
         ]);
     }
 
-    public function events()
+    public function events(): \Illuminate\Http\JsonResponse
     {
         return response()->json([
             'error' => null,
@@ -105,7 +108,7 @@ class UserController extends Controller
         ]);
     }
 
-    public function user_events()
+    public function user_events(): \Illuminate\Http\JsonResponse
     {
         return response()->json([
             'error' => null,
@@ -114,7 +117,7 @@ class UserController extends Controller
     }
 
 //    Add an event to user
-    public function add_event(Request $request, string $event_id)
+    public function add_event(Request $request, string $event_id): \Illuminate\Http\JsonResponse
     {
         $user = auth()->user();
 
@@ -127,7 +130,7 @@ class UserController extends Controller
     }
 
     //    Remove event from user
-    public function detach_event(Request $request, string $event_id)
+    public function detach_event(Request $request, string $event_id): \Illuminate\Http\JsonResponse
     {
         $user = auth()->user();
 
