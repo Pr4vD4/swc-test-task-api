@@ -18,7 +18,7 @@ cd swc-test-task-api
 
 Install dependencies
 ```shell
-comoser install
+composer install
 ```
 
 Set up the *.env* file.
