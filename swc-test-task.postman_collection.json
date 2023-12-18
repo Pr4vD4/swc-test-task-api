@@ -129,7 +129,7 @@
 			]
 		},
 		{
-			"name": "admin",
+			"name": "user",
 			"item": [
 				{
 					"name": "users",
@@ -149,13 +149,30 @@
 							}
 						],
 						"url": {
-							"raw": "{{host}}/admin/users",
+							"raw": "{{host}}/users",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
-								"admin",
 								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/users/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"1"
 							]
 						}
 					},
@@ -388,7 +405,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc3djLXRlc3QtdGFzay1hcGkvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MDI3NTg3NzcsImV4cCI6MTcwMjc2MjM3NywibmJmIjoxNzAyNzU4Nzc3LCJqdGkiOiJkaGhNZHZ4TmtsY0ZWMlJMIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJ1c2VyIjp7ImlkIjoxLCJuYW1lIjoiVGVzdCIsInN1cm5hbWUiOiJVc2VyIiwibG9naW4iOiJ1c2VyMSJ9fQ.06B3uAdTOCccfni9o2iMo2zYW162EzzxM1DDUOv1o_I",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc3djLXRlc3QtdGFzay1hcGkvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE3MDI5MDc4NzEsImV4cCI6MTcwMjkxMTQ3MSwibmJmIjoxNzAyOTA3ODcxLCJqdGkiOiI1dzllVnBXUFZZQ0ltVGpEIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJ1c2VyIjp7ImlkIjoxLCJuYW1lIjoiVGVzdCIsInN1cm5hbWUiOiJVc2VyIiwibG9naW4iOiJ1c2VyMSJ9fQ.lvqeFTbjJzNMlLPN9Um8h6dnhAHuwmrUincjl2ZBgIg",
 				"type": "string"
 			}
 		]
